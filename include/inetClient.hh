@@ -1,7 +1,7 @@
 #ifndef INETCLIENT_HH
 #define INETCLIENT_HH
 
-#include <netinet/in.h>
+#include <netinet/in.h> // sockaddr_in
 
 class inetClient{
 public:

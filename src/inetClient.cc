@@ -5,6 +5,7 @@
 #include <arpa/inet.h>
 #include <netdb.h> // hostent
 #include <iostream>
+#include <unistd.h> // close
 #include <string.h> // strlen
 
 inetClient::inetClient(long int bufSize){
@@ -15,6 +16,7 @@ inetClient::inetClient(long int bufSize){
 }
 
 inetClient::~inetClient(){
+  close(_socket);
   delete _buffer;
 }
 
