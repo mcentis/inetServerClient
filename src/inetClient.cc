@@ -5,6 +5,7 @@
 #include <arpa/inet.h>
 #include <netdb.h> // hostent
 #include <iostream>
+#include <string.h> // strlen
 
 inetClient::inetClient(long int bufSize){
   _bufSize = bufSize;
@@ -66,6 +67,17 @@ bool inetClient::Send(const char* msg, int len){
 
   if(send(_socket, msg, len, 0) < 0){ // if the operation fails
     perror("[inetClient::Send] Send failed");
+    return false;
+  }
+  
+  return true;
+}
+
+bool inetClient::SendCString(const char* msg){
+
+  int len = strlen(msg);
+  if(send(_socket, msg, len, 0) < 0){ // if the operation fails
+    perror("[inetClient::SendCString] Send failed");
     return false;
   }
   

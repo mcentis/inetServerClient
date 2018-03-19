@@ -8,6 +8,7 @@ public:
   inetClient(long int bufSize);
   bool Connect(const char* address, int port);
   bool Send(const char* msg, int len);
+  bool SendCString(const char* msg);
   long int Receive();
   char* GetBufferPointer();
   ~inetClient();
