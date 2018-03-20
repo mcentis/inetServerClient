@@ -17,6 +17,8 @@ inetClient::inetClient(long int bufSize){
 
 inetClient::~inetClient(){
   close(_socket);
+  std::cout << "Connection closed" << std::endl;
+
   delete _buffer;
 }
 
